@@ -1,0 +1,60 @@
+<template>
+<lightning-card icon-name="standard:apex_plugin">
+        <span slot="title">Search for USB Devices</span>
+        <template if:true={vid}>
+        <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-5 ccol">
+                   <span>
+                        <img src={pictureurl} class="product slds-align_absolute-center" alt="Product picture">
+                   </span>
+                </div>
+                <div class="slds-col slds-size_4-of-5">
+                                <div class="slds-form-element">
+                                        <label class="slds-form-element__label">
+                                               <span class="slds-slider-label">
+                                               <span class="slds-slider-label__label">Spectro2Guide 45/0</span>
+                                               <span class="slds-slider-label__label">Real device: {realdevicename}</span>
+                                               <span class="slds-slider-label__label">Vendor Id: {deviceobject.deviceDescriptor.idVendor}, Product Id: {deviceobject.deviceDescriptor.idProduct}</span>
+                                               </span>
+                                       </label>
+                                       </div>
+                </div>
+        </div>
+        <div class="slds-align_absolute-center" style="height: 3rem;">
+                        <lightning-button
+                            label="Start diagnostics"
+                            variant="brand"
+                            onclick={handleClick}
+                            class="slds-p-vertical_small"
+                        ></lightning-button>
+        </div>
+        </template>
+        <template if:false={vid}>
+                        <div class="slds-grid">
+                                <div class="slds-col slds-size_1-of-5 ccol">
+                                   <span>
+                                        <img src={usboffurl} class="product slds-align_absolute-center" alt="Product picture">
+                                   </span>
+                                </div>
+                                <div class="slds-col slds-size_4-of-5">
+                                                <div class="slds-form-element">
+                                                        <label class="slds-form-element__label">
+                                                               <span class="slds-slider-label">
+                                                               <span class="slds-slider-label__label">No BYK devices</span>
+                                                               <span class="slds-slider-label__label">Real device: no devices</span>
+                                                               </span>
+                                                       </label>
+                                                       </div>
+                                </div>
+                        </div>
+        </template>
+        <div class="slds-align_absolute-center" style="height: 3rem;">
+                        <lightning-button
+                            label="Search for USB devices"
+                            variant="brand"
+                            onclick={handleClick}
+                            class="slds-p-vertical_small"
+                        ></lightning-button>
+        </div>
+</lightning-card>  
+</template>
